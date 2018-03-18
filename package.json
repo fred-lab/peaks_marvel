@@ -5,13 +5,15 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
-        "dev-server": "encore dev-server",
-        "dev": "encore dev",
-        "watch": "encore dev --watch",
-        "build": "encore production"
+        "dev-server": "./node_modules/.bin/encore dev-server",
+        "dev": "./node_modules/.bin/encore dev",
+        "watch": "./node_modules/.bin/encore dev --watch",
+        "build": "./node_modules/.bin/encore production"
     },
     "dependencies": {
         "axios": "^0.18.0",
+        "node-sass": "^4.7.2",
+        "sass-loader": "^6.0.7",
         "vue": "^2.5.16",
         "vue-loader": "^14.2.1",
         "vue-router": "^3.0.1",
