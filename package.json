@@ -9,5 +9,13 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production"
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "vue": "^2.5.16",
+        "vue-loader": "^14.2.1",
+        "vue-router": "^3.0.1",
+        "vue-template-compiler": "^2.5.16",
+        "vuex": "^3.0.1"
     }
 }
