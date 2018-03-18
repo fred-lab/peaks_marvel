@@ -25,3 +25,15 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Marvel_Api:
+        class: App\Services\MarvelData
+        arguments:
+            $url: '%env(URL)%'
+            $endpoint: '%env(ENDPOINT)%'
+            $limit: '%env(LIMIT)%'
+            $offset: '%env(OFFSET)%'
+            $publicKey: '%env(PUBLIC_KEY)%'
+            $privateKey: '%env(PRIVATE_KEY)%'
+
+    App\Services\FetchApiDataInterface: '@Marvel_Api'
