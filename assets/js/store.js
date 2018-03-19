@@ -11,14 +11,20 @@ Vue.use(Vuex)
 
 /* store the data */
 export const state = {
-    characters: []
+    characters: [],
+    loader: true,
+    index: 0,
+    itemsPerPage: 5
 }
 
 /**
  * Getters to access to the state
  */
 export const getters = {
-    getCharacters: state => state.characters
+    getCharacters: state => state.characters.slice(state.index, state.index + state.itemsPerPage),
+    getCharactersCount: state => state.characters.length,
+    getLoader: state => state.loader,
+    getItemsPerPage: state => state.itemsPerPage
 }
 
 /**
@@ -27,6 +33,12 @@ export const getters = {
 export const mutations = {
     SET_CHARACTERS(state, characters){
         state.characters = characters
+    },
+    SET_LOADER(state){
+        state.loader = false
+    },
+    SET_INDEX (state, index){
+        state.index = index
     }
 }
 
@@ -40,10 +52,39 @@ export const actions = {
     setCharacters({commit}){
         axios.get('api/marvel/characters').then(
             ({data}) => {
+                data.forEach(hero => hero['slug'] = slugify(hero.name))
                 commit('SET_CHARACTERS', data)
+                commit('SET_LOADER')
             }
         )
+    },
+    /**
+     * Set the index for the pagination
+     * @param commit
+     * @param index
+     */
+    setIndex({commit}, index){
+        commit('SET_INDEX', index)
     }
+}
+
+/**
+ * Private methods
+ */
+
+/**
+ * Slugify a name
+ * @param name
+ * @returns {string}
+ * @private
+ */
+let slugify = (name)=>{
+    return name.toString().toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
 }
 
 export default new Vuex.Store({

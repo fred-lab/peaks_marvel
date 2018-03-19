@@ -2,12 +2,12 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
+    {#<link rel="stylesheet" href="{{ asset('build/js/app.css') }}">#}
 {% endblock %}
 
 {% block body %}
 <div id="app">
-
+    <marvel-app></marvel-app>
 </div>
 {% endblock %}
 
