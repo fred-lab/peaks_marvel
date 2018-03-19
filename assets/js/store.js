@@ -25,11 +25,7 @@ export const getters = {
     getCharacters: state => state.characters,
     getCharactersCount: state => state.characters.length,
     getLoader: state => state.loader,
-    getItemsPerPage: state => state.itemsPerPage,
-    getPreviousHero: (state, index) => {
-        console.log('PreviousHero', index)
-        return state.characters.filter(hero => hero.position === index - 1)
-    }
+    getItemsPerPage: state => state.itemsPerPage
 }
 
 /**

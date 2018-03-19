@@ -14,4 +14,12 @@ class HomeController extends Controller
     {
         return $this->render('home/index.html.twig');
     }
+
+    /**
+     * @Route("/{vue}", name="api_redirect", requirements={"vue" = "[\/\w\.-]*"})
+     */
+    public function redirectToHomepage()
+    {
+        return $this->redirectToRoute('home');
+    }
 }
