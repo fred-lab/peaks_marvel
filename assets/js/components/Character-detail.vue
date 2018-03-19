@@ -13,7 +13,9 @@
                 </div>
             </div>
         </div>
+        <router-link v-if="character.position > 0" :to="{ name: 'character_detail', params: { slug: previousHero.slug }}" class="btn btn-primary">Héro précédent</router-link>
         <router-link :to="{ name: 'homepage'}" class="btn btn-primary">Retour à la liste de héro</router-link>
+        <router-link v-if="character.position < lastPosition" :to="{ name: 'character_detail', params: { slug: nextHero.slug }}" class="btn btn-primary">Héro suivant</router-link>
     </div>
 </template>
 
@@ -22,6 +24,15 @@
         computed: {
             character(){
                 return this.$store.getters.getCharacters.filter(character => character.slug === this.$route.params.slug)[0]
+            },
+            lastPosition(){
+                return this.$store.getters.getCharactersCount - 1
+            },
+            previousHero(){
+                return this.$store.getters.getCharacters.filter(hero => hero.position === this.character.position - 1)[0]
+            },
+            nextHero(){
+                return this.$store.getters.getCharacters.filter(hero => hero.position === this.character.position + 1)[0]
             }
         }
     }

@@ -21,10 +21,15 @@ export const state = {
  * Getters to access to the state
  */
 export const getters = {
-    getCharacters: state => state.characters.slice(state.index, state.index + state.itemsPerPage),
+    getCharactersForPagination: state => state.characters.slice(state.index, state.index + state.itemsPerPage),
+    getCharacters: state => state.characters,
     getCharactersCount: state => state.characters.length,
     getLoader: state => state.loader,
-    getItemsPerPage: state => state.itemsPerPage
+    getItemsPerPage: state => state.itemsPerPage,
+    getPreviousHero: (state, index) => {
+        console.log('PreviousHero', index)
+        return state.characters.filter(hero => hero.position === index - 1)
+    }
 }
 
 /**
@@ -52,7 +57,10 @@ export const actions = {
     setCharacters({commit}){
         axios.get('api/marvel/characters').then(
             ({data}) => {
-                data.forEach(hero => hero['slug'] = slugify(hero.name))
+                data.forEach((hero, index) => {
+                    hero['slug'] = slugify(hero.name)
+                    hero['position'] = index
+                })
                 commit('SET_CHARACTERS', data)
                 commit('SET_LOADER')
             }
