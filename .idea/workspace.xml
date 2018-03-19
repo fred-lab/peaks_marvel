@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="aabf7e1c-975d-4293-9499-c3cdf23f97d0" name="Default" comment="" />
+=======
+    <list default="true" id="aabf7e1c-975d-4293-9499-c3cdf23f97d0" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/assets/js/store.js" afterPath="$PROJECT_DIR$/assets/js/store.js" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" afterPath="$PROJECT_DIR$/config/routes.yaml" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" />
+    </list>
+>>>>>>> Front
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -480,12 +489,20 @@
       <workItem from="1521470436419" duration="1791000" />
       <workItem from="1521472244434" duration="1793000" />
       <workItem from="1521474053556" duration="1791000" />
+<<<<<<< HEAD
       <workItem from="1521475867333" duration="186000" />
+=======
+      <workItem from="1521475867333" duration="26000" />
+>>>>>>> Front
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="18335000" />
+=======
+    <option name="totallyTimeSpent" value="18175000" />
+>>>>>>> Front
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
